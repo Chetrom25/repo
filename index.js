@@ -3,12 +3,13 @@ const port = 8000;
 
 const requestListener = (req, res) => {
     console.log(req);
+    let addr = req.socket.remoteAddress
     res.writeHead(200);
-    res.end("My first server!");
+    console.log(`addr = ${addr}`)
+    res.end(`My first server! ${addr}`);
 };
 
 const server = http.createServer(requestListener);
 server.listen(port, () => {
-    let addr = server.address()
-    console.log(`Server is running on port ${port} addr ${addr.address}`);
+    console.log(`Server is running on port ${port} `);
 });
