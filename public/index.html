@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Main Page</title>
+</head>
+<body>
+  <h1>Main Page</h1>
+  <p>Welcome to the main page!</p>
+
+  <h2>Links:</h2>
+  <ul>
+    <li><a href="/page1">Page 1</a></li>
+    <li><a href="/page2">Page 2</a></li>
+    <li><a href="/page3">Page 3</a></li>
+    <li><a href="/page4">Page 4</a></li>
+  </ul>
+
+  <h2>Remote IP Address:</h2>
+  <p id="remote-ip">Loading...</p>
+
+  <script>
+    // Fetch the remote IP address from the server
+    fetch('/remote-ip')
+      .then(response => response.text())
+      .then(ip => {
+        // Update the 'remote-ip' element with the fetched IP address
+        const remoteIpElement = document.getElementById('remote-ip');
+        remoteIpElement.textContent = `Remote IP: ${ip}`;
+      })
+      .catch(error => {
+        console.error('Error fetching remote IP:', error);
+        const remoteIpElement = document.getElementById('remote-ip');
+        remoteIpElement.textContent = 'Failed to fetch remote IP.';
+      });
+  </script>
+</body>
+</html>
