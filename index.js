@@ -1,5 +1,5 @@
 const http = require("http");
-const host = 'localhost';
+const host = 'chetrom.westeurope.cloudapp.azure.com'//'localhost';
 const port = 8000;
 
 const requestListener = (req, res) => {
