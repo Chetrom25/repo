@@ -19,8 +19,8 @@ async function fetchLogs() {
 
   const fromjsDiv = document.getElementById('fromjs')
   fromjsDiv.src = kiev
-  fromjsDiv.style.width = '300px'
-  fromjsDiv.style.height = '300px'
+  fromjsDiv.style.width = '400px'
+  fromjsDiv.style.height = '400px'
   console.log(myGlobalVal)
   // Fetch the logs when the page is loaded
-  //window.addEventListener('load', fetchLogs);
+  window.addEventListener('load', fetchLogs);

@@ -10,7 +10,7 @@ const logRemoteIP = (req, res, next) => {
     const remoteIP = req.ip;
     const timestamp = new Date().toISOString();
     const log = `Time: ${timestamp} | Remote IP: ${remoteIP}\n`;
-    fs.appendFile('public/remote.txt', log, (err) => {
+    fs.appendFile('remote.txt', log, (err) => {
         if (err) console.error(err);
     });
     next();
@@ -22,31 +22,31 @@ console.log('server.js!!!!!');
     app.use(logRemoteIP);
 
     // Serve static files from the "public" directory
-    app.use(express.static(path.join(__dirname, '/')));
+    app.use(express.static(path.join(__dirname, '../dist')));
 
     // Route for the main page
     app.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, 'public', 'index.html'));
+        res.sendFile(path.join(__dirname, '../dist', 'index.html'));
     });
 
     // Route for page1
     app.get('/page1', (req, res) => {
-        res.sendFile(path.join(__dirname, 'public', 'page1.html'));
+        res.sendFile(path.join(__dirname, '../dist', 'page1.html'));
     });
 
     // Route for page2
     app.get('/page2', (req, res) => {
-        res.sendFile(path.join(__dirname, 'public', 'page2.html'));
+        res.sendFile(path.join(__dirname, '../dist', 'page2.html'));
     });
 
     // Route for page3
     app.get('/page3', (req, res) => {
-        res.sendFile(path.join(__dirname, 'public', 'page3.html'));
+        res.sendFile(path.join(__dirname, '../dist', 'page3.html'));
     });
 
     // Route for page4
     app.get('/page4', (req, res) => {
-        res.sendFile(path.join(__dirname, 'public', 'page4.html'));
+        res.sendFile(path.join(__dirname, '../dist', 'page4.html'));
     });
 
     app.get('/remote-ip', (req, res) => {
